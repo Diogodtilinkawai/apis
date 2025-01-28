@@ -12,6 +12,8 @@
       <ion-title size="large">NASA image of the day</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-input placeholder="Enter date" type="date" [formControl]="imageDate"></ion-input>
+  <ion-button (click)="loadimage(imageDate)">Load image</ion-button>
 
   <ion-content class="ion-padding">
     <ng-container *ngIf="image; else loading">
