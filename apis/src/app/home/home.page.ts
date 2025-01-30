@@ -10,7 +10,8 @@ import { FormControl } from '@angular/forms';
 })
 export class HomePage {
   image: any;
-  imageDate = new FormControl(new Date());
+  imageDate: any;
+  tilin = new FormControl('');
 
   constructor(private nasaService:NasaService) {}
   ngOnInit() {
@@ -19,7 +20,7 @@ export class HomePage {
     });
   }
   loadimage(imageDate: any) {
-    this.nasaService.getimagebydate(imageDate.value).subscribe((data) => {
+    this.nasaService.getimagebydate(this.tilin.value).subscribe((data) => {
       this.imageDate = data;
     });
   }

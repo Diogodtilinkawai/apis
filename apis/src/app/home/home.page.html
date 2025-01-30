@@ -12,7 +12,7 @@
       <ion-title size="large">NASA image of the day</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-input placeholder="Enter date" type="date" [formControl]="imageDate"></ion-input>
+  <ion-input placeholder="Enter date" type="date" [formControl]="tilin"></ion-input>
   <ion-button (click)="loadimage(imageDate)">Load image</ion-button>
 
   <ion-content class="ion-padding">
@@ -24,6 +24,19 @@
           <ion-card-subtitle>{{ image.date }}</ion-card-subtitle>
           <ion-card-content>
             {{ image.explanation }}
+          </ion-card-content>
+        </ion-card-header>
+        </ion-card>
+    </ng-container>
+
+    <ng-container *ngIf="imageDate; else loading">
+      <ion-card>
+        <img [src]="imageDate.url" alt="NASA image of the day">
+        <ion-card-header>
+          <ion-card-title>{{ imageDate.title }}</ion-card-title>
+          <ion-card-subtitle>{{ imageDate.date }}</ion-card-subtitle>
+          <ion-card-content>
+            {{ imageDate.explanation }}
           </ion-card-content>
         </ion-card-header>
         </ion-card>
